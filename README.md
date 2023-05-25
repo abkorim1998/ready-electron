@@ -7,7 +7,7 @@
 * `npm i `
 * `npm watch `
 * `npm build `
-
+* `congrats✌ start building`
 ## it have a lot of feature
 - webpack
 - hot realot for main and randarar
