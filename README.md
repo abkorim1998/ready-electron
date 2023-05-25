@@ -5,11 +5,13 @@
 * `git clone this repo`
 * `cd ready-electron `
 * `npm i `
-* `npm watch `
-* `npm build `
+* `npm run watch `
+* `npm run build `
 * `congrats✌ start building`
 ## it have a lot of feature
 - webpack
 - hot realot for main and randarar
+- TypeScript coming soon
+- React.js coming soon
 
   
