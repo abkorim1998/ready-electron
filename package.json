@@ -1,5 +1,5 @@
 {
-  "name": "electron ready app",
+  "name": "electron_ready_app",
   "version": "1.0.0",
   "description": "",
   "main": "./build/main.js",
