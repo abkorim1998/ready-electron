@@ -98,12 +98,41 @@ function createTray() {
     tray.setContextMenu(contextMenu);
 }
 
-app.whenReady().then(() => {
-    createWindow();
-});
-app.on('window-all-closed', () => {
-    app.quit(); // quit the app when all windows are closed.
-});
+// app.whenReady().then(() => {
+//     createWindow();
+// });
+// app.on('window-all-closed', () => {
+//     app.quit(); // quit the app when all windows are closed.
+// });
+// Check if another instance of the app is already running
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  // If another instance is running, quit the app
+  app.quit();
+} else {
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+        // When a second instance is launched, focus the existing window
+        if (mainWindow) {
+            if (mainWindow.isMinimized()) {
+                mainWindow.restore();
+            }
+            mainWindow.show();
+            mainWindow.focus();
+        }
+    });
+
+    app.whenReady().then(() => {
+        createWindow();
+    });
+
+    app.on('window-all-closed', () => {
+        // Modify this event listener to keep the app running even if all windows are closed
+        if (process.platform !== 'darwin') {
+            app.quit();
+        }
+    });
+}
 
 
 // ipcMain
